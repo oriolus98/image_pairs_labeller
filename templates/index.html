@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Pair Labeling</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Label the pair of images</h1>
+        {% if image_pair %}
+            <form method="post" action="{{ url_for('label') }}">
+                <div>
+                    <img src="{{image_pair['image1']}}" alt="Image 1" width="300">
+                    <img src="{{image_pair['image2']}}" alt="Image 2" width="300">
+                </div>
+                <input type="hidden" name="image1" value="{{ image_pair['image1'] }}">
+                <input type="hidden" name="image2" value="{{ image_pair['image2'] }}">
+                <div>
+                    <button type="submit" name="label" value="same" class="same">Same Specimen</button>
+                    <button type="submit" name="label" value="different" class="different">Different Specimen</button>
+                    <button type="submit" name="label" value="undetermined" class="undetermined">Unable to Determine</button>
+                </div>
+            </form>
+        {% else %}
+            <p class="message">All pairs have been labeled.</p>
+        {% endif %}
+    </div>
+    <div class="logout-container">
+        <form action="{{ url_for('logout') }}" method="get">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+</body>
+</html>
+
