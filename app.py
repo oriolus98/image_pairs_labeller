@@ -9,7 +9,8 @@ app.secret_key = 'fvcksapos'
 DB_FILES = {
     'Oriol': 'sets/set1.csv',
     'Manel': 'sets/set2.csv',
-    'Arturo': 'sets/set3.csv'
+    'Arturo': 'sets/set3.csv',
+    'Javier': 'sets/set4.csv'
 }
 
 # Load image pairs from CSV and cache them

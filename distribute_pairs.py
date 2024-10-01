@@ -13,13 +13,15 @@ for pair in itertools.combinations(images, 2):
 
 df = pd.DataFrame({'image1': image1, 'image2': image2, 'labelled': False, 'label': ''})
 
-set_size = len(df) // 3
+set_size = len(df) // 4
 
 # Step 2: Split the DataFrame into three sets
 set1 = df.iloc[:set_size]
 set2 = df.iloc[set_size:set_size*2]
-set3 = df.iloc[set_size*2:]
+set3 = df.iloc[set_size*2:set_size*3]
+set4 = df.iloc[set_size*3:]
 
 set1.to_csv('./sets/set1.csv', index = False)
 set2.to_csv('./sets/set2.csv', index = False)
 set3.to_csv('./sets/set3.csv', index = False)
+set4.to_csv('./sets/set4.csv', index = False)
